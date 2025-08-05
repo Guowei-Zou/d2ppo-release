@@ -145,7 +145,7 @@ dmypy.json
 cfg/robomimic/*.sh
 
 *.out
-*.png
+# *.png
 *.mp4
 *.MP4
 *.MOV

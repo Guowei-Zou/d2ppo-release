@@ -13,6 +13,14 @@
 > 
 > An enhanced version of Diffusion Policy Policy Optimization with dispersive loss regularization for improved representation learning and policy robustness in continuous control and robot learning tasks.
 
+## 🏗️ Model Architecture
+
+<div align="center">
+<img src="assets/d2ppo_architecture.jpg" alt="D²PPO Architecture" width="800"/>
+
+*D²PPO framework overview: The model consists of pre-training with dispersive loss regularization (left) and fine-tuning with PPO (right). The dispersive loss prevents representation collapse in diffusion networks, while the Vision Transformer (ViT) processes visual inputs for robotic manipulation tasks.*
+</div>
+
 ## 🎯 Key Innovation: Dispersive Loss
 
 **D²PPO addresses diffusion representation collapse**, a fundamental challenge where diffusion policy networks learn redundant or collapsed representations. Our **Dispersive Loss** regularization technique enhances diffusion-based policy learning by:
