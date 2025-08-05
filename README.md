@@ -1,8 +1,17 @@
 # D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss
 
-> **D²PPO: Dispersive Diffusion Policy Policy Optimization**
+<div align="center">
+
+[![🚀 Project Page](https://img.shields.io/badge/🚀_Project_Page-blue?style=for-the-badge)](https://guowei-zou.github.io/d2ppo/)
+[![📄 Paper](https://img.shields.io/badge/📄_Paper-red?style=for-the-badge)](https://arxiv.org/abs/2508.02644)
+[![🎥 Video](https://img.shields.io/badge/🎥_Video-green?style=for-the-badge)](https://youtu.be/a4nR4IXNwQE)
+[![💻 Code](https://img.shields.io/badge/💻_Code-purple?style=for-the-badge)](https://github.com/Guowei-Zou/d2ppo-release.git)
+
+</div>
+
+> **D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss**
 > 
-> An enhanced version of Diffusion Policy Policy Optimization (DPPO) with dispersive loss regularization for improved representation learning and policy robustness in continuous control and robot learning tasks.
+> An enhanced version of Diffusion Policy Policy Optimization with dispersive loss regularization for improved representation learning and policy robustness in continuous control and robot learning tasks.
 
 ## 🎯 Key Innovation: Dispersive Loss
 
@@ -232,3 +241,19 @@ This project is released under the MIT License. See [LICENSE](LICENSE) for detai
 ---
 
 🔬 **Research Focus**: This implementation primarily targets **vision-based robotic manipulation tasks** where dispersive loss shows the most significant improvements. The technique is particularly effective for **image-based policies** using RGB camera observations in complex manipulation scenarios.
+
+## 📖 Citation
+
+If you use D²PPO in your research, please cite:
+
+```bibtex
+@misc{zou2025d2ppodiffusionpolicypolicy,
+      title={D2PPO: Diffusion Policy Policy Optimization with Dispersive Loss}, 
+      author={Guowei Zou and Weibing Li and Hejun Wu and Yukun Qian and Yuhang Wang and Haitao Wang},
+      year={2025},
+      eprint={2508.02644},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2508.02644}, 
+}
+```
