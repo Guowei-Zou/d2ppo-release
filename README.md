@@ -2,11 +2,11 @@
 
 <div align="center">
 
-[![🚀 Project Page](https://img.shields.io/badge/🚀_Project_Page-blue?style=for-the-badge)](https://guowei-zou.github.io/d2ppo/)
-[![📄 Paper](https://img.shields.io/badge/📄_Paper-red?style=for-the-badge)](https://arxiv.org/abs/2508.02644)
-[![🎥 Video](https://img.shields.io/badge/🎥_Video-green?style=for-the-badge)](https://youtu.be/a4nR4IXNwQE)
-[![💻 Code](https://img.shields.io/badge/💻_Code-purple?style=for-the-badge)](https://github.com/Guowei-Zou/d2ppo-release.git)
-
+[![🚀 Project Page](https://img.shields.io/badge/🚀_Project_Page-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://guowei-zou.github.io/d2ppo/)
+[![📄 Paper](https://img.shields.io/badge/📄_Paper-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2508.02644)
+[![💻 Code](https://img.shields.io/badge/💻_Code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Guowei-Zou/d2ppo-release.git)
+[![🎥 YouTube](https://img.shields.io/badge/🎥_YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/a4nR4IXNwQE)
+[![📺 Bilibili](https://img.shields.io/badge/📺_Bilibili-FF6699?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1mqtFzNEnu/?share_source=copy_web&vd_source=af323cc810d69452bd73799b93e838d6)
 </div>
 
 > **D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss**
