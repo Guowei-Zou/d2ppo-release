@@ -265,3 +265,11 @@ If you use D²PPO in your research, please cite:
       url={https://arxiv.org/abs/2508.02644}, 
 }
 ```
+
+## ⭐ Star History
+
+<div align="center">
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Guowei-Zou/d2ppo-release&type=Date)](https://star-history.com/#Guowei-Zou/d2ppo-release&Date)
+
+</div>
