@@ -212,18 +212,11 @@ d2ppo/
     └── run.py                    # Main training script
 ```
 
-## 🔬 Research and Citation
+## 🔬 Research
 
 This work is available as a preprint on OpenReview. If you use D²PPO with dispersive loss in your research, please cite:
 
-```bibtex
-@misc{d2ppo2025,
-  title={D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss},
-  author={[Authors]},
-  year={2025},
-  note={Preprint available on OpenReview}
-}
-```
+
 
 ### Key Research Contributions
 
