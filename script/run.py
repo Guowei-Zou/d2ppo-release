@@ -8,6 +8,12 @@ import sys
 import pretty_errors
 import logging
 
+# Auto-setup PYTHONPATH to include project root
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+    os.environ['PYTHONPATH'] = project_root + ':' + os.environ.get('PYTHONPATH', '')
+
 import math
 import hydra
 from omegaconf import OmegaConf
@@ -123,6 +129,54 @@ sys.stdout = open(sys.stdout.fileno(), mode="w", buffering=1)
 sys.stderr = open(sys.stderr.fileno(), mode="w", buffering=1)
 
 
+def check_environment_variables():
+    """Check and setup required environment variables with helpful error messages."""
+    required_vars = {
+        'DPPO_DATA_DIR': 'data directory',
+        'DPPO_LOG_DIR': 'log directory',
+    }
+
+    missing_vars = []
+    for var, description in required_vars.items():
+        if var not in os.environ:
+            missing_vars.append((var, description))
+
+    if missing_vars:
+        print("\n" + "="*80)
+        print("ERROR: Missing required environment variables!")
+        print("="*80)
+        print("\nThe following environment variables need to be set:\n")
+        for var, desc in missing_vars:
+            print(f"  • {var}: {desc}")
+
+        print("\n" + "-"*80)
+        print("Quick Fix - Run these commands:")
+        print("-"*80)
+        print(f"\nexport DPPO_DATA_DIR={project_root}/data")
+        print(f"export DPPO_LOG_DIR={project_root}/log")
+        print("export DPPO_WANDB_ENTITY=your-wandb-entity  # Optional, for W&B logging")
+
+        print("\n" + "-"*80)
+        print("Or use the provided script:")
+        print("-"*80)
+        print(f"\nsource {os.path.join(project_root, 'script/env.sh')}")
+        print("\nThen re-run your command.")
+        print("="*80 + "\n")
+        sys.exit(1)
+
+    # Auto-create directories if they don't exist
+    data_dir = os.environ.get('DPPO_DATA_DIR')
+    log_dir = os.environ.get('DPPO_LOG_DIR')
+
+    for directory, name in [(data_dir, 'DPPO_DATA_DIR'), (log_dir, 'DPPO_LOG_DIR')]:
+        if directory and not os.path.exists(directory):
+            try:
+                os.makedirs(directory, exist_ok=True)
+                log.info(f"Created {name} directory: {directory}")
+            except Exception as e:
+                log.warning(f"Could not create {name} directory {directory}: {e}")
+
+
 @hydra.main(
     version_base=None,
     config_path=os.path.join(
@@ -130,9 +184,12 @@ sys.stderr = open(sys.stderr.fileno(), mode="w", buffering=1)
     ),  # possibly overwritten by --config-path
 )
 def main(cfg: OmegaConf):
+    # Check environment variables first
+    check_environment_variables()
+
     # resolve immediately so all the ${now:} resolvers will use the same time.
     OmegaConf.resolve(cfg)
-    
+
     # Regenerate experiment name and logdir with actual resolved values
     update_experiment_naming(cfg)
 
@@ -156,7 +213,7 @@ def main(cfg: OmegaConf):
         gdown.download(url=download_url, output=download_target, fuzzy=True)
 
     # For for-tuning: download checkpoint if needed
-    if "base_policy_path" in cfg and not os.path.exists(cfg.base_policy_path):
+    if "base_policy_path" in cfg and cfg.base_policy_path is not None and not os.path.exists(cfg.base_policy_path):
         download_url = get_checkpoint_download_url(cfg)
         if download_url is None:
             raise ValueError(

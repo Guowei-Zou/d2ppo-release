@@ -7,7 +7,7 @@ _target_: agent.finetune.train_ppo_diffusion_img_agent.TrainPPOImgDiffusionAgent
 
 name: ${env_name}_ft_diffusion_mlp_img_ta${horizon_steps}_td${denoising_steps}_tdf${ft_denoising_steps}
 logdir: ${oc.env:DPPO_LOG_DIR}/robomimic-finetune/${name}/${now:%Y-%m-%d}_${now:%H-%M-%S}_${seed}
-base_policy_path: # TODO: Replace with your pre-trained policy path, e.g., weights/square/baseline_pretraining_image_8000.pt
+base_policy_path: ${oc.env:DPPO_LOG_DIR}/robomimic-pretrain/square_pre_diffusion_mlp_img_ta4_td100/2024-07-30_22-27-34/checkpoint/state_4000.pt
 robomimic_env_cfg_path: cfg/robomimic/env_meta/${env_name}-img.json
 normalization_path: ${oc.env:DPPO_DATA_DIR}/robomimic/${env_name}-img/normalization.npz
 

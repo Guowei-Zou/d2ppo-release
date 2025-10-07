@@ -49,10 +49,10 @@ Where `L_dispersive` uses contrastive learning principles with three variants:
 
 1. **Clone and setup environment**:
 ```bash
-git clone https://github.com/your-username/d2ppo.git  # TODO: Replace with your actual repository URL
-cd d2ppo
-conda create -n d2ppo python=3.8 -y
-conda activate d2ppo
+git clone https://github.com/Guowei-Zou/d2ppo-release.git
+cd d2ppo-release
+conda create -n dppo python=3.8 -y
+conda activate dppo
 pip install -e .
 ```
 
@@ -78,9 +78,48 @@ pip install -e .[all]  # includes gym, robomimic, d3il, furniture
 ```
 
 4. **Setup environment variables**:
+
+**⚠️ IMPORTANT**: You must set these environment variables before running any experiments:
+
 ```bash
-source script/set_path.sh  # Sets data and logging directories, WandB entity
+# Option 1: Use the provided script (recommended)
+source script/env.sh
+
+# Option 2: Set manually (modify paths as needed)
+export DPPO_DATA_DIR=/path/to/d2ppo-release/data
+export DPPO_LOG_DIR=/path/to/d2ppo-release/log
+export DPPO_WANDB_ENTITY=your-wandb-entity  # Optional, for W&B logging
 ```
+
+**Note**: If you skip this step, the script will provide helpful error messages guiding you to set these variables.
+
+### Quick Test
+
+After installation and environment setup, test your installation with:
+
+```bash
+# Setup environment (if not already done)
+source script/env.sh
+
+# Run a fine-tuning experiment (will auto-download pretrained model and data)
+python script/run.py --config-name=ft_ppo_diffusion_mlp_img --config-dir=cfg/robomimic/finetune/can/ wandb=null
+```
+
+The script will automatically:
+- ✅ Download normalization statistics
+- ✅ Download the pretrained checkpoint
+- ✅ Start training
+
+### Common Issues
+
+**Q: Getting environment variable errors?**
+```bash
+# Just run this first:
+source script/env.sh
+```
+
+**Q: Still having issues?**
+The script will show clear error messages with exact commands to fix them. Just follow the instructions!
 
 ### Dataset Download
 
