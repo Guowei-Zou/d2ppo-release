@@ -111,6 +111,7 @@ model:
         embed_style: embed2
         embed_norm: 0
     augment: False
+    num_img: 1
     spatial_emb: 128
     mlp_dims: [768, 768, 768]
     residual_style: True
@@ -125,6 +126,7 @@ model:
   critic:
     _target_: model.common.critic.ViTCritic
     spatial_emb: 128
+    num_img: 1
     augment: False
     backbone:
       _target_: model.common.vit.VitEncoder
