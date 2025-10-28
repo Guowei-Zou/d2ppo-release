@@ -96,12 +96,18 @@ class RobomimicImageWrapper(gym.Env):
         obs = {"rgb": None, "state": None}  # stack rgb if multiple cameras
         for key in self.obs_keys:
             if key in self.image_keys:
+                img = raw_obs[key]
+                # Ensure channel-first (C, H, W)
+                # Robomimic/robosuite typically returns HWC; convert if needed
+                if img.ndim == 3 and img.shape[-1] in (1, 3):
+                    img = img.transpose(2, 0, 1)
+                # Cast to float32 to match observation_space dtype
+                if img.dtype != np.float32:
+                    img = img.astype(np.float32)
                 if obs["rgb"] is None:
-                    obs["rgb"] = raw_obs[key]
+                    obs["rgb"] = img
                 else:
-                    obs["rgb"] = np.concatenate(
-                        [obs["rgb"], raw_obs[key]], axis=0
-                    )  # C H W
+                    obs["rgb"] = np.concatenate([obs["rgb"], img], axis=0)  # C H W
             else:
                 if obs["state"] is None:
                     obs["state"] = raw_obs[key]
@@ -109,7 +115,8 @@ class RobomimicImageWrapper(gym.Env):
                     obs["state"] = np.concatenate([obs["state"], raw_obs[key]], axis=-1)
         if self.normalize:
             obs["state"] = self.normalize_obs(obs["state"])
-        obs["rgb"] *= 255  # [0, 1] -> [0, 255], in float64
+        # Convert image scale to [0, 255] float for encoder
+        obs["rgb"] *= 255.0
         return obs
 
     def seed(self, seed=None):
