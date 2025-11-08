@@ -7,10 +7,23 @@
 [![💻 Code](https://img.shields.io/badge/💻_Code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Guowei-Zou/d2ppo-release.git)
 [![🎥 YouTube](https://img.shields.io/badge/🎥_YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/a4nR4IXNwQE)
 [![📺 Bilibili](https://img.shields.io/badge/📺_Bilibili-FF6699?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1mqtFzNEnu/?share_source=copy_web&vd_source=af323cc810d69452bd73799b93e838d6)
+
+</div>
+
+<div align="center">
+
+### Authors
+
+[Guowei Zou](https://guowei-zou.github.io/Guowei-Zou/), [Weibing Li](https://cse.sysu.edu.cn/en/teacher/LiWeibing), [Hejun Wu*](https://cse.sysu.edu.cn/teacher/WuHejun), Yukun Qian, Yuhang Wang, and Haitao Wang*
+
+*Corresponding authors*
+
+### <span style="color: #FF6B35;">🎓 Accepted by AAAI 2026</span>
+
 </div>
 
 > **D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss**
-> 
+>
 > An enhanced version of Diffusion Policy Policy Optimization with dispersive loss regularization for improved representation learning and policy robustness in continuous control and robot learning tasks.
 
 ## 🏗️ Model Architecture
