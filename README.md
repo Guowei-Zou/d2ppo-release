@@ -14,9 +14,7 @@
 
 ### Authors
 
-[Guowei Zou](https://guowei-zou.github.io/Guowei-Zou/), [Weibing Li](https://cse.sysu.edu.cn/en/teacher/LiWeibing), [Hejun Wu*](https://cse.sysu.edu.cn/teacher/WuHejun), Yukun Qian, Yuhang Wang, and Haitao Wang*
-
-*Corresponding authors*
+[Guowei Zou](https://guowei-zou.github.io/Guowei-Zou/), [Weibing Li](https://cse.sysu.edu.cn/en/teacher/LiWeibing), [Hejun Wu](https://cse.sysu.edu.cn/teacher/WuHejun), Yukun Qian, Yuhang Wang, and Haitao Wang
 
 ### <span style="color: #FF6B35;">🎓 Accepted by AAAI 2026</span>
 
