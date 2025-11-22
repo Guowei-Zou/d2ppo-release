@@ -1,4 +1,4 @@
-# D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss
+# [AAAI 2026] D²PPO: Diffusion Policy Policy Optimization with Dispersive Loss
 
 <div align="center">
 
